@@ -12,11 +12,12 @@ const Home = () => {
     }
 
     const handleSearch1 = () => {
+        
         muscle &&
           axios
             .get(`https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`, {
               headers: {
-                "X-Api-Key": "/SiL1kGBHAGp+M3qVIu76A==7KZMrc5uVR2AwTKD",
+                "X-Api-Key": import.meta.env.VITE_NINJA_API_KEY,
               },
             })
             .then((res) => {
@@ -27,6 +28,7 @@ const Home = () => {
     }
 
     const handleSearch2 = () => {
+        
         muscle &&
           axios
             .get(
@@ -34,9 +36,8 @@ const Home = () => {
               {
                 params: { limit: "10" },
                 headers: {
-                  "X-RapidAPI-Key":
-                    "f4d179f829mshb063896df674f08p15c7b7jsn09ad4b7e26df",
-                  "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+                  "X-RapidAPI-Key": import.meta.env.VITE_EXERCISEDB_API_KEY,
+                  "X-RapidAPI-Host": import.meta.env.VITE_EXERCISEDB_HOST,
                 },
               }
             )
